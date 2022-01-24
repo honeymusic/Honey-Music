@@ -1,0 +1,32 @@
+{
+  "name": "a-discord-bots-new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "keywords": [
+    "music bot",
+    "spotify music bot",
+    "music",
+    "discord bot",
+    "discord",
+    "lavalink",
+    "erela.js"
+  ],
+  "author": "!\" ╰‿╯ ᴰʸⁿᵒΔRΨΔΠ†ᶜᵒᵐᵉᵇᵃᶜᵏ#6969",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.11.0",
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "colors": "^1.4.0",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0",
+    "dotenv": "^14.2.0",
+    "erela.js": "^2.3.3",
+    "erela.js-filters": "^1.2.6",
+    "erela.js-spotify": "^1.2.0",
+    "mongoose": "^6.1.7"
+  }
+}

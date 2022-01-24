@@ -1,0 +1,11 @@
+{
+    "status": {
+        "statusDefault": "dnd",
+        "statusName": "Write ,help for commands",
+        "statusType": "COMPETING"
+    },
+    "Bot": {
+        "prefix": ",",
+        "supportServer": "https://discord.gg/vEFA24mZaa"
+    }
+}
