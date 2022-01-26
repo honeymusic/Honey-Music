@@ -2,3 +2,5 @@ package-lock.json
 lavalink.txt
 node_modules/
 .env
+client/
+server/
