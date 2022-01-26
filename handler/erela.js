@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 const Spotify  = require("erela.js-spotify");
 const filter = require('erela.js-filters');
 const { lavalinkNodes } = require('../config/lavalink');
+const config = require('../config/config.json');
 /**
  * 
  * 
@@ -58,18 +59,14 @@ module.exports = async(client) => {
             .get(player.textChannel)
             .send({
               embeds: [embed]
-            }).then(msg => {
-              setTimeout(() => {
-                msg.delete()
-              }, 1000 * 9)
-            });
+            })
         })
         .on("queueEnd", (player) => { 
           client.channels.cache
             .get(player.textChannel)
             .send({
               embeds: [new Discord.MessageEmbed()
-              .setDescription(`The queue got ended\nIf you want to loop a queue then write \`>loop\` to loop a queue`)
+              .setDescription(`The queue got ended\nIf you want to loop a queue then write \`${config.Bot.prefix}loop\` to loop a queue`)
             .setColor("PURPLE")]
             });
           player.destroy();
@@ -77,7 +74,7 @@ module.exports = async(client) => {
         .on("trackEnd", (player, track) => {
             client.channels.cache.get(player.textChannel).send({
               embeds: [new Discord.MessageEmbed()
-              .setDescription(`The title **${track.title}** got ended\nIf you want to loop a track then write \`>loop\` to loop a track`)
+              .setDescription(`The title **${track.title}** got ended\nIf you want to loop a track then write \`${config.Bot.prefix}loop\` to loop a track`)
             .setColor("PURPLE")]
             })
         })
@@ -85,7 +82,7 @@ module.exports = async(client) => {
             console.log(`${payload.error}`)
         })
         .on("trackStuck", (player, track, payload) => {
-          console.log(`Oops`)
+          client.cache.channels.get(player.textChannel).send("Something went wrong.")
         })
 }
 

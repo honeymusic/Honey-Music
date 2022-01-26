@@ -1,3 +1,8 @@
+/**
+ * Error Handler
+ * This will never crash your bot!!!
+ */
+
 module.exports = client => {
     process.on('unhandledRejection', (reason, p) => {
          console.log('[antiCrash] :: Unhandled Rejection/Catch'.red);

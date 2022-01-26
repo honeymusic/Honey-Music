@@ -1,51 +1,140 @@
-const Discord = require('discord.js');
-const unlisted = ["eval", "shutdown"];
-const { Bot } = require('../../config/config.json');
+const Discord = require("discord.js");
+const emoji = require('../../config/emoji.json');
+const config = require('../../config/config.json');
 module.exports = {
-    name: "help",
-    aliases: ["?", "commands"],
-    cooldown: 1000 * 5,
-    bot_permission: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
-    user_permission: [],
-    category: "other",
-    description: "It's only to check how much time does it takes to reply to you or do some things.",
+  name: "help",
+  aliases: ["commands"],
+  cooldown: 1000 * 2,
+  bot_permission: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  user_permission: [],
+  category: "others",
+  description:
+    "It's only to check how much time does it takes to reply to you or do some things.",
+  /**
+   * @param {Discord.Client} client
+   * @param {Discord.Message} message
+   * @param {String[]} args
+   */
 
-    /**
-     * 
-     * @param {Discord.Client} client 
-     * @param {Discord.Message} message 
-     * @param {String[]} args 
-     */
+  /**
+   * Idk
+   */
+  async execute(client, message, args) {
+    let j = args[0];
 
-    async execute(client, message, args) {
-        const commands = client.commands
-            .filter(c => !unlisted.includes(c.name))
-            .map(c => `\`${c.name}\``);
+    if (!j) {
+      const p = "$";
+      let embed = new Discord.MessageEmbed().setDescription(
+        `${emoji.correct} All my commands Information\n**Are you new to this bot**\nWrite \`${config.Bot.prefix}guide\`\nTotal commands: ${client.commands.size}`
+      );
 
-            const embeds = new Discord.MessageEmbed()
-            .setTitle(`Information of **__${client.user.username}__**`)
-            .setDescription(`💪 **__My features__**\n> **${client.commands.size}+ commands**\n😎 **Free music support** Meaning that you don't need to pay anything.\n**Filters** Use filters to inhance music experience!\n**Smooth Music** We use 100+ Lavalink server to give smooth audio\n\n> 🎵 **__Commands__**\n ${commands.join(" | ")}\n> 👤 **__Info__**\nProgrammed by \`!" ╰‿╯ ᴰʸⁿᵒΔRΨΔΠ†ᶜᵒᵐᵉᵇᵃᶜᵏ#6969\``)
-            .setImage("https://i.gifer.com/origin/98/98a8adb91f24c5bd9a9b24d53d0d66c6.gif")
-            .setFooter({
-                text: `${client.user.username} on top`,
-                iconURL: `${client.user.displayAvatarURL({ format: "png" })}`
+      let raw = new Discord.MessageActionRow().addComponents(
+        new Discord.MessageSelectMenu()
+          .setCustomId("help-menu")
+          .setPlaceholder("Click here to see category and their commands")
+          .addOptions([
+            client.categories.map((cat) => {
+              return {
+                label: `${cat[0].toUpperCase() + cat.slice(1)}`,
+                value: cat,
+                description: `Click to see all commands of ${cat}`,
+              };
+            }),
+          ])
+      );
+
+      let rawz = new Discord.MessageActionRow().addComponents(
+        new Discord.MessageSelectMenu()
+          .setCustomId("help-menu")
+          .setPlaceholder("Click here to see category and their commands")
+          .addOptions([
+            client.categories.map((cat) => {
+              return {
+                label: `${cat[0].toUpperCase() + cat.slice(1)}`,
+                value: cat,
+                description: `Click to see all commands of ${cat}`,
+              };
+            }),
+          ])
+          .setDisabled(true)
+      );
+
+      message.channel
+        .send({
+          embeds: [embed],
+          components: [raw],
+        })
+        .then(async (msg) => {
+          let filter = (i) => i.user.id === message.author.id;
+          let collector = await msg.createMessageComponentCollector({
+            filter,
+            time: 1000 * 20,
+          });
+
+          collector.on("collect", async (i) => {
+            if (i.isSelectMenu()) {
+              if (i.customId === "help-menu") {
+                await i.deferUpdate().catch();
+                let [directory] = i.values;
+                let aa = new Discord.MessageEmbed()
+                  .setColor("RANDOM")
+                  .setTitle(`All commands of ${directory}`)
+                  .setDescription(
+                    `${client.commands
+                      .filter((cmd) => cmd.category === directory)
+                      .map((cmd) => {
+                        return [`**${cmd.name}**\n${emoji.util.reply}${cmd.description}`].join("");
+                      })
+                      .join("\n")}`
+                  )
+                  .setFooter({
+                    text: `${client.user.username} OP`,
+                    iconURL: `${message.author.displayAvatarURL({
+                      dynamic: true,
+                    })}`,
+                  });
+
+                msg.edit({ embeds: [aa] });
+              }
+            }
+          });
+          collector.on("end", (c) => {
+            let u = new Discord.MessageEmbed()
+              .setTitle("Finished")
+              .setDescription(
+                `${emoji.correct} If you want to see information of a specific command\n You can write \`$help <command name>\``
+              )
+              .setColor("BLUE")
+              .setTimestamp();
+            msg.edit({
+              embeds: [u],
+              components: [rawz],
             });
-
-            const components = new Discord.MessageActionRow().addComponents(
-                new Discord.MessageButton().setLabel("Invite").setEmoji("🔰").setStyle("LINK").setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`),
-                new Discord.MessageButton().setLabel("Support Server").setEmoji("😎").setStyle("LINK").setURL(`${Bot.supportServer}`),
-            )
-
-            message.reply({
-                embeds: [embeds],
-                components: [components]
-            })
+          });
+        });
     }
-}
 
-/**
- * @info Give credits if your using this music
- * @info programmed by !" ╰‿╯ ᴰʸⁿᵒΔRΨΔΠ†ᶜᵒᵐᵉᵇᵃᶜᵏ#6969
- * @info #roadto100subs
- * @info Github: https://github.com/Aryan700coder/Honey-Music
- */
+    if (j) {
+      const command = client.commands.get(args[0]);
+
+
+      if (command) {
+        let e = new Discord.MessageEmbed()
+          .setTitle(`${command.name}`)
+          .setDescription(
+            `**Cooldown:** \`${command.cooldown}\``
+          )
+          .setColor("GOLD")
+          .setTimestamp();
+
+        message.reply({
+          embeds: [e],
+        });
+      } else {
+        return message.reply(
+          `<a:Crossmark:931102231535702066> | Cannot find \`${j}\``
+        );
+      }
+    }
+  },
+};

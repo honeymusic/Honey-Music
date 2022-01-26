@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "node .",
+    "info": "echo Programmed by !\" ╰‿╯ ᴰʸⁿᵒΔRΨΔΠ†ᶜᵒᵐᵉᵇᵃᶜᵏ#6969"
   },
   "keywords": [
     "music bot",
@@ -27,6 +29,11 @@
     "erela.js": "^2.3.3",
     "erela.js-filters": "^1.2.6",
     "erela.js-spotify": "^1.2.0",
-    "mongoose": "^6.1.7"
+    "express": "^4.17.2",
+    "lyrics-finder": "^21.7.0",
+    "mongoose": "^6.1.7",
+    "passport": "^0.5.2",
+    "passport-discord": "^0.1.4",
+    "winston": "^3.4.0"
   }
 }

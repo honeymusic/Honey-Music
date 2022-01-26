@@ -17,10 +17,14 @@ module.exports = {
    */
 
   async execute(client, message, args) {
+
+    let songName = args.join(' ')
+
+    if(!songName) return message.reply(`${emoji.wrong} | You need to provide a song to play`)
     const res = await client.manager.search(
       args.join(' '),
       message.author
-    ).catch(e => console.log(e));;
+    ).catch(e => console.log(e));
 
     if(!res) return message.reply(`${emoji.wrong} | Cannot find the music you wanted`)
 

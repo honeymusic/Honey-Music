@@ -7,7 +7,7 @@ module.exports = {
   bot_permission: ["SEND_MESSAGES", "VIEW_CHANNEL", "CONNECT", "SPEAK"],
   user_permission: [],
   category: "music",
-  description: "Play any song you want.",
+  description: "Pause a music. You can pause and drink some water!",
 
   /**
    *
@@ -17,11 +17,11 @@ module.exports = {
    */
 
   async execute(client, message, args) {
-    const player = message.client.manager.get(message.guild.id);
+    let player = client.manager.get(message.guild.id);
     if (!player) return message.reply(`${emoji.wrong} | there is no music and player for this guild.`);
 
     const { channel } = message.member.voice;
-    
+
     if (!channel) return message.reply(`${emoji.wrong} | you need to join a voice channel.`);
     if (channel.id !== player.voiceChannel) return message.reply(`${emoji.wrong} | you're not in the same voice channel.`);
     if (player.paused) return message.reply(`${emoji.wrong} | The player is already paused`);

@@ -6,9 +6,10 @@ const client = new Discord.Client({
         repliedUser: false,
     }
 });
-
+const { readdirSync } = require('fs');
 client.commands = new Discord.Collection();
 client.slash = new Discord.Collection();
+client.categories = readdirSync("./commands/");
 
 /**
  * @comment Requiring Handlers 

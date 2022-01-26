@@ -5,7 +5,7 @@
         "statusType": "COMPETING"
     },
     "Bot": {
-        "prefix": ",",
+        "prefix": "ok",
         "supportServer": "https://discord.gg/vEFA24mZaa"
     }
 }

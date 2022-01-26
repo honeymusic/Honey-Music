@@ -25,7 +25,7 @@ module.exports = {
   bot_permission: ["SEND_MESSAGES", "VIEW_CHANNEL", "CONNECT", "SPEAK"],
   user_permission: [],
   category: "music",
-  description: "Play any song you want.",
+  description: "Shows all usable filters for bot!",
 
   /**
    *

@@ -8,7 +8,7 @@ module.exports = {
   bot_permission: ['SEND_MESSAGES', 'VIEW_CHANNEL', 'CONNECT', 'SPEAK'],
   user_permission: [],
   category: 'music',
-  description: 'Play any song you want.',
+  description: 'Check the current queue of track and playlist',
 
   /**
    *

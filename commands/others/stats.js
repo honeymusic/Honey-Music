@@ -7,8 +7,8 @@ module.exports = {
     cooldown: 1000 * 5,
     bot_permission: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     user_permission: [],
-    category: "other",
-    description: "It's only to check how much time does it takes to reply to you or do some things.",
+    category: "others",
+    description: "See bot stats like ram usage, library info etc.",
 
     /**
      * 
