@@ -7,7 +7,7 @@ module.exports = {
   bot_permission: ["SEND_MESSAGES", "VIEW_CHANNEL", "CONNECT", "SPEAK"],
   user_permission: ["MANAGE_GUILD"],
   category: "music",
-  description: "Pause a music. You can pause and drink some water!",
+  description: "Wanna save a song??",
  
   /**
    *
