@@ -13,8 +13,6 @@ module.exports = async (client) => {
       console.log(`     ┃ `.bold.brightGreen + ` [--] ${client.user.tag} [] `.bold.brightGreen+ " ".repeat(-1+stringlength-` ┃ `.length-` /--/ ${client.user.tag} [] `.length)+ "┃".bold.brightGreen)
       console.log(`     ┃ `.bold.brightGreen + " ".repeat(-1+stringlength-` ┃ `.length)+ "┃".bold.brightGreen)
       console.log(`     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`.bold.brightGreen)
-
-      require('../server/server')(client);
 }
 
 /**

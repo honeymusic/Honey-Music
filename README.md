@@ -18,3 +18,6 @@ and put your prefix in config.json
 npm i
 npm run dev
 ```
+
+# Support
+Support Me By adding <a href="https://discord.com/api/oauth2/authorize?client_id=934832369385472011&permissions=8&scope=bot%20applications.commands">Honey Music</a> into your server!
