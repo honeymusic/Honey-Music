@@ -102,7 +102,7 @@ module.exports = {
             let u = new Discord.MessageEmbed()
               .setTitle("Finished")
               .setDescription(
-                `${emoji.correct} If you want to see information of a specific command\n You can write \`$help <command name>\``
+                `${emoji.correct} If you want to see information of a specific command\n You can write \`${config.Bot.prefix}help <command name>\``
               )
               .setColor("BLUE")
               .setTimestamp();

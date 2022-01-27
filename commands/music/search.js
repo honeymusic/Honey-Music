@@ -17,6 +17,7 @@ module.exports = {
    */
 
   async execute(client, message, args) {
+      try {
     let whatToSearch = args.join(" ");
 
     if (!whatToSearch)
@@ -82,16 +83,6 @@ module.exports = {
 
           if (player) {
             player.queue.add(track);
-
-            if(msg.editable) {
-                msg.edit({
-                    embeds: [new Discord.MessageEmbed()
-                    .setTitle(`${track.title}`)
-                .setDescription("")
-            .setThumbnail(`${track.thumbnail || "https://media1.giphy.com/media/tqfS3mgQU28ko/giphy.gif"}`)
-        .setColor("RANDOM")]
-                })
-            }
           } else {
             player.queue.add(track);
             player.play();
@@ -101,8 +92,20 @@ module.exports = {
           }
         });
 
-        collector.on("end", (collected) => {});
+        collector.on("end", (collected) => {
+            if(msg.editable) {
+                msg.edit({
+                    content: " ",
+                    embeds: [new Discord.MessageEmbed()
+                    .setDescription("You either ran out of time or you searched it.")
+                .setColor("RANDOM")]
+                })
+            }
+        });
       });
+    } catch {
+        message.reply(`${emoji.wrong} | Oops something went wrong...`)
+    }
   },
 };
 
