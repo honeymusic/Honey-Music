@@ -25,7 +25,7 @@ module.exports = {
     if (!j) {
       const p = "$";
       let embed = new Discord.MessageEmbed().setDescription(
-        `${emoji.correct} All my commands Information\n**Are you new to this bot**\nWrite \`${config.Bot.prefix}guide\`\nTotal commands: ${client.commands.size}`
+        `${emoji.correct} All my commands Information\n**Total commands:** ${client.commands.size}`
       );
 
       let raw = new Discord.MessageActionRow().addComponents(
