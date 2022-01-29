@@ -1,11 +1,9 @@
 # ChangeLog
-🎉Version 2.0 Released🎉
+🎉Version 2.1 Released🎉
 
 ### Added
-<li>Search Command</li>
-<li>Grab Command</li>
-<li>Bug Fixes</li>
-<li>Lyrics Command [Unstable]</li>
+<li>Skipto command</li>
+<li>a website with login on which we are working</li>
 
 ### Fixed
-<li>Music stopping for a second when adding a queue using play command</li>
+<li>Tons of bugs</li>
