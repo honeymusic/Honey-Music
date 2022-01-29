@@ -14,8 +14,7 @@ A youtube tutorial will be coming soon
 # ✨ Setup
 <br>
 create a env file using .env.example
-and edit emoji.json as your preference
-and put your prefix in config.json 
+and go to config folder and change the config as your wish
 
 ```bash
 npm i
