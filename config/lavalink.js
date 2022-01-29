@@ -1,10 +1,10 @@
 module.exports = {
     lavalinkNodes: [
         {
-            host: "localhost",
-            port: 443,
-            password: "youshallnotpass",
-            secure: true,
+            host: "losingtime.dpaste.org",
+            port: 2124,
+            password: "SleepingOnTrains",
+            secure: false,
           },
     ]
 }

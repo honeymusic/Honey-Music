@@ -1,7 +1,11 @@
 {
+    "COMMENT": "// For reaction emoji. use emoji id.",
     "correct": "<a:z_checkmark:931101844695044106>",
     "wrong": "<:z_cross:936122108306661376>",
     "util": {
         "reply": "<:reply:931114100719747092>"
+    },
+    "music": {
+        "skip": "<:skip:931878262865551361>"
     }
 }

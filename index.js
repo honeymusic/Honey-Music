@@ -10,7 +10,9 @@ const { readdirSync } = require('fs');
 client.commands = new Discord.Collection();
 client.slash = new Discord.Collection();
 client.categories = readdirSync("./commands/");
+client.events = new Discord.Collection();
 
+module.exports = client; // ^__^
 /**
  * @comment Requiring Handlers 
  */

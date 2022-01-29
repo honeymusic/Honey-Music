@@ -1,0 +1,8 @@
+{
+    "Website": {
+        "title": "Honey Music",
+        "avatarURL": "",
+        "domain": "http://localhost:8080/",
+        "callback": "http://localhost:8080/callback"
+    }
+}

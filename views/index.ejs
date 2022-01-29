@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/index.css" />
+    <link
+      rel="icon"
+      href="<%= bot.user.displayAvatarURL({ format: 'png', size: 128 }) %>"
+    />
+    <title><%= Settings.Website.title %></title>
+  </head>
+  <body style="background-color: #1f1f1f; color: white">
+    <%- include('header.ejs') %>
+    <div class="header">
+      <img
+        src="<%= bot.user.displayAvatarURL({ format: 'png', size: 96 }) %>"
+        alt="<%= bot.user.displayAvatarURL({ format: 'png', size: 128 }) %>"
+      />
+      <h2><%= Settings.Website.title %></h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <button type="button" class="invbtn btn btn-primary">Invite</button>
+    </div>
+
+    <!-- Doing Styling here -->
+    <style>
+      .header {
+        padding-top: 170px;
+      }
+      .header h2 {
+        text-align: center;
+      }
+      .header p {
+        text-align: center;
+        color: rgb(129, 129, 129);
+      }
+      .header img {
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 15%;
+      }
+
+      .header .invbtn {
+        margin: 0;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      /* Media Thing xD */
+      @media screen and (max-width: 957px) {
+          .header .invbtn {
+            top: 68%;
+          }
+      }
+      @media screen and (max-width: 499px) {
+          .header .invbtn {
+            top: 60%;
+          }
+      }
+    </style>
+  </body>
+</html>
