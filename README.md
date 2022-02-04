@@ -1,6 +1,5 @@
 #  Current Updates
-I left discord forever
-and that means I have left making discord bots
+Lets Go 
 
 # 🐝🍯 Honey Music
 Honey music is a open source music bot made using lavalink to send audio
