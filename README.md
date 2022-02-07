@@ -27,4 +27,4 @@ npm run dev
 # 😁 Support
 Support Me By adding 
 
-<a href="https://discord.com/api/oauth2/authorize?client_id=934832369385472011&permissions=8&scope=bot%20applications.commands"><img src="https://media.discordapp.net/attachments/928190125626785834/940091148016431125/5ED17925-5DF2-47F0-B780-911CE0B00D18.png" alt="logo"></a> 
+<a href="https://discord.com/api/oauth2/authorize?client_id=934832369385472011&permissions=8&scope=bot%20applications.commands"><img src="https://media.discordapp.net/attachments/928190125626785834/940091148016431125/5ED17925-5DF2-47F0-B780-911CE0B00D18.png" width="60" alt="logo"></a> 
